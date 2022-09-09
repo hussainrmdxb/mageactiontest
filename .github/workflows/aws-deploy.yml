@@ -21,8 +21,7 @@ jobs:
 
       - name: Magento Deployment Commands
         run:  |
-          cd /var/www/html
-          php bin/magento setup:upgrade
-          php bin/magento setup:di:compile
-          php bin/magento setup:static-content:deploy -f
-          php bin/magento cache:flush
+          php /var/www/html/bin/magento setup:upgrade
+          php /var/www/html/bin/magento setup:di:compile
+          php /var/www/html/bin/magento setup:static-content:deploy -f
+          php /var/www/html/bin/magento cache:flush
