@@ -1,0 +1,20 @@
+name: m2-deploy-actions
+on: [push]
+jobs:
+  magento2-install:
+    runs-on: ubuntu-latest
+    name: 'magento push and deploy'
+    steps:
+      - name: Checkout the files
+        uses: actions/checkout@v3
+
+      - name: Deploy to the Server - AWS EC2 - via SSH
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: "ec2-34-216-180-142.us-west-2.compute.amazonaws.com"
+          REMOTE_USER: "ubuntu"
+          TARGET: "/var/www/html"
+
+      - name: 'Run magento Deployment Commands'
+        run: "bin/magento setup:di:compile"
