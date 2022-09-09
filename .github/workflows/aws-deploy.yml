@@ -20,9 +20,8 @@ jobs:
         run: composer install
 
       - name: Magento Deployment Commands
-        run:  |
-          chmod +x bin/magento
-          bin/magento setup:upgrade
-          bin/magento setup:di:compile
-          bin/magento setup:static-content:deploy -f
-          bin/magento cache:flush
+        run: chmod +x bin/magento
+      - run: bin/magento setup:upgrade
+      - run: bin/magento setup:di:compile
+      - run: bin/magento setup:static-content:deploy -f
+      - run: bin/magento cache:flush
