@@ -17,6 +17,7 @@ jobs:
           TARGET: "/var/www/html"
 
       - name: 'Run magento Deployment Commands'
-        run: "bin/magento setup:upgrade"
-        run: "bin/magento setup:di:compile"
+        run:
+          "bin/magento setup:upgrade"
+          "bin/magento setup:di:compile"
 
