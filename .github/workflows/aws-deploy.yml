@@ -16,7 +16,7 @@ jobs:
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html"
 
-      - name: Install Dependencies
+      - name: Install Composer Dependencies
         run: composer install
 
       - name: Magento Deployment Commands
