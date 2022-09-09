@@ -21,6 +21,7 @@ jobs:
 
       - name: Magento Deployment Commands
         run:  |
+          cd /var/www/html
           bin/magento setup:upgrade
           bin/magento setup:di:compile
           bin/magento setup:static-content:deploy -f
