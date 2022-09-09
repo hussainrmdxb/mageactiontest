@@ -21,7 +21,8 @@ jobs:
 
       - name: Magento Deployment Commands
         run: chmod +x bin/magento
-      - run: bin/magento setup:upgrade
+      - name: Magento Setup Upgrade
+        run: bin/magento setup:upgrade
       - run: bin/magento setup:di:compile
       - run: bin/magento setup:static-content:deploy -f
       - run: bin/magento cache:flush
